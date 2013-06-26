@@ -1,6 +1,6 @@
 <?php
 
-namespace lib\SSB;
+namespace lib\SSB\core;
 
 use PDO;
 

@@ -5,7 +5,7 @@ spl_autoload_register();
 
 //new lib\SSB\Router;
 ////////////////////////////////////////////////////////////////
-$Node = new lib\SSB\Node;
+$Node = new lib\SSB\model\Node;
 $node = $Node->getNode("kosadaka-phantom-fluorocarbon.html");
 $content = $node->body;
 $title = $node->name;
