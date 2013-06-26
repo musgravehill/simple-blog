@@ -1,5 +1,5 @@
 <?php
-namespace lib\SSB\model;
+namespace lib\SSB\models;
 use PDO, lib\SSB\core as Core;
 
 
@@ -38,7 +38,7 @@ class Node extends Core\DB {
         $stmt = self::$_conn->prepare('SELECT * FROM nodes WHERE url_name = :url  LIMIT 1 ');
         $stmt->execute(array('url' => $url));        
         # Map results to object
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\model\Node');
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Node');
         $node = $stmt->fetch();
         return $node;
     }

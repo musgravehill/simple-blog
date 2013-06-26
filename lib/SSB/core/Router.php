@@ -1,6 +1,7 @@
 <?php
 
-namespace lib\SSB;
+namespace lib\SSB\core;
+use lib\SSB\controllers as Controllers;
 
 class Router {
 
@@ -11,12 +12,13 @@ class Router {
         $pattern = '/\.html/';
         if (preg_match($pattern, $_SERVER['REQUEST_URI'], $matches)) {
             $url = $request[1];
-            echo 'show node by url = ' . $url;
-            $content = $node->body;
-            $title = $node->name;
-            $description = '';
-            $keywords = '';
-
+            $nodeController = new Controllers\node;
+            $result = $nodeController->showNode($url);
+            $content = $result['content'];
+            $title = $result['title'];
+            $description = $result['description'];
+            $keywords = $result['keywords'];
+            include '/views/layout/main.php';
             exit;
         }
         //show community by name and page
