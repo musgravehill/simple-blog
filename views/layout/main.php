@@ -9,13 +9,13 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="/favicon.png" >
         <meta name='yandex-verification' content='592c8d42b791bebc' />
-        <link href="/design/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link href="/design/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="/design/bootstrap/css/bootstrap.css" rel="stylesheet">        
         <style>
             body {
                 padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
             }
         </style>
+        <link href="/design/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
