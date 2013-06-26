@@ -1,4 +1,8 @@
 RewriteEngine   on
 RewriteBase /
-RewriteRule ^audiosearch/(.*)/(.*)$ index.php?q=$1&offset=$2 [QSA,L]
-RewriteRule ^lyrics/(.*)/(.*)$ index.php?lyrics_id=$1&lyrics_title=$2 [QSA,L]
+
+#RewriteRule ^community/(.*)/(.*)$ index.php?&controller=community&communityName=$1&page=$2 [QSA,L]
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
