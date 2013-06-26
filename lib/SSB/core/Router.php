@@ -7,6 +7,7 @@ use lib\SSB\controllers as Controllers;
 class Router {
 
     public function __construct() {
+        $stopRoute = FALSE;
         $request = explode('/', $_SERVER['REQUEST_URI']);
 
         //show node by url
@@ -20,11 +21,11 @@ class Router {
             $description = $result['description'];
             $keywords = $result['keywords'];
             include '/views/layout/main.php';
-            exit;
+            $stopRoute = TRUE;
         }
         //show community by name and page
         $pattern = '/community\/.*/';
-        if (preg_match($pattern, $_SERVER['REQUEST_URI'], $matches)) {
+        if ((!$stopRoute) && (preg_match($pattern, $_SERVER['REQUEST_URI'], $matches))) {
             $community_name = $request[2];
             (isset($request[3])) ? $page = (int) $request[3] : $page = 0;
             echo 'show node by community_name = ' . $community_name . ' page =' . $page;
@@ -32,17 +33,18 @@ class Router {
             $title = $node->name;
             $description = '';
             $keywords = '';
-
-
-            exit;
+            $stopRoute = TRUE;
         }
         //show blog by page
-        (isset($request[1])) ? $page = (int) $request[1] : $page = 0;
-        echo 'show blog page =' . $page;
-        $content = $node->body;
-        $title = $node->name;
-        $description = '';
-        $keywords = '';
+        if (!$stopRoute) {
+            (isset($request[1])) ? $page = (int) $request[1] : $page = 0;
+            echo 'show blog page =' . $page;
+            $content = $node->body;
+            $title = $node->name;
+            $description = '';
+            $keywords = '';
+            $stopRoute = TRUE;
+        }
     }
 
 }
