@@ -14,7 +14,7 @@ class DB {
 
     public function __construct() {
         try {
-            self::$_conn = new PDO('mysql:host=' . self::$_host . ';dbname=' . self::$_db.';charset=utf8', self::$_username, self::$_password);
+            self::$_conn = new PDO('mysql:host=' . self::$_host . ';dbname=' . self::$_db . ';charset=utf8', self::$_username, self::$_password);
             self::$_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();

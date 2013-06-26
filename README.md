@@ -1,4 +1,4 @@
-static-simple-blog
+simple-blog
 ==================
 
 Simple blog with nodes and community list.   

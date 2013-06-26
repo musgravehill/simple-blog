@@ -1,6 +1,7 @@
 <?php
 
 namespace lib\SSB\controllers;
+
 use lib\SSB\models as Models;
 
 class node {

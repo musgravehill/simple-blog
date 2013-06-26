@@ -1,6 +1,7 @@
 <?php
 
 namespace lib\SSB\core;
+
 use lib\SSB\controllers as Controllers;
 
 class Router {
