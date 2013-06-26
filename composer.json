@@ -1,0 +1,12 @@
+{
+    "name": "musgravehill/static-simple-blog"
+    ,"description": "simple blog"
+    ,"keywords": ["php"]
+    ,"homepage": "https://github.com/musgravehill/static-simple-blog"
+    ,"author": "musgravehill"  
+    ,"target-dir": "musgravehill/static-simple-blog"
+    ,"version" : "1.0.0"
+    ,"require":{
+        "php":">=5.3.0"
+    }
+}
