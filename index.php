@@ -7,10 +7,10 @@ spl_autoload_register();
 ////////////////////////////////////////////////////////////////
 $Node = new lib\SSB\Node;
 $node = $Node->getNode("kosadaka-phantom-fluorocarbon.html");
-$content =  $node->body;
-$title= '';
-$description= '';
-$keywords= '';
+$content = $node->body;
+$title = $node->name;
+$description = '';
+$keywords = '';
 include '/views/layout/main.php';
 
 //$Node = new lib\SSB\Node;
