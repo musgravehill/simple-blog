@@ -1,0 +1,4 @@
+RewriteEngine   on
+RewriteBase /
+RewriteRule ^audiosearch/(.*)/(.*)$ index.php?q=$1&offset=$2 [QSA,L]
+RewriteRule ^lyrics/(.*)/(.*)$ index.php?lyrics_id=$1&lyrics_title=$2 [QSA,L]
