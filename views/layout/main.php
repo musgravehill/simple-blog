@@ -34,6 +34,19 @@
         </div>
 
         <div class="container">
-            <div class="span10">
-                <?php echo $content; ?>
+            <div class="row">
+                <div class="span9">
+                    <?php echo $content; ?>
+                </div>
+                <div class="span3">
+                    <?php include '/views/layout/sidebar.php'; ?>
+                </div>
             </div>
+        </div> <!-- /container -->
+
+        <script src="/design/jquery/jquery-2.0.2.min.js"></script>
+        <script src="/design/bootstrap/js/bootstrap.min.js"></script>
+
+
+    </body>
+</html>

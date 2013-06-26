@@ -11,8 +11,7 @@ $content =  $node->body;
 $title= '';
 $description= '';
 $keywords= '';
-include '/views/blocks/header.php';
-include '/views/blocks/footer.php';
+include '/views/layout/main.php';
 
 //$Node = new lib\SSB\Node;
 //var_dump(  $node->getNodes() );
