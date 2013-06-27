@@ -7,8 +7,7 @@
         <meta name="description" content="<?php echo $description; ?>">
         <meta name="keywords" content="<?php echo $keywords; ?>">
         <meta name="author" content="">
-        <link rel="shortcut icon" href="/favicon.png" >
-        <meta name='yandex-verification' content='592c8d42b791bebc' />
+        <link rel="shortcut icon" href="/favicon.png" >        
         <link href="/design/bootstrap/css/bootstrap.css" rel="stylesheet">        
         <style>
             body {
@@ -20,11 +19,12 @@
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
-                <div class="container">              
-                    <div class="nav-collapse collapse">
-                        <a class="brand" href="/">Блог рыболова Бориса Сергеевича</a>
-                    </div><!--/.nav-collapse -->
-                </div>
+                            
+                    <div class="top-div-brand">
+                        <a class="name-top-brand" style="" href="/">Рыбку ловим!</a>      
+                        <div class="nav-collapse collapse"></div><!--/.nav-collapse -->
+                        </div>
+                
             </div>
         </div>
         <div class="container">
@@ -33,11 +33,25 @@
                     <?php echo $content; ?>
                 </div>
                 <div class="span3">
-                    <?php include '/views/layout/sidebar.php'; ?>
+                    <?php include 'lib/SSB/views/layout/sidebar.php'; ?>
                 </div>
             </div>
         </div> <!-- /container -->
         <script src="/design/jquery/jquery-2.0.2.min.js"></script>
         <script src="/design/bootstrap/js/bootstrap.min.js"></script>
     </body>
+    <style>
+        .top-div-brand{
+            background-color:#669900;
+            display: inline-block;
+            margin: 0px;
+            padding: 10px;
+            height: 100%;
+        }
+        .name-top-brand, .name-top-brand:hover{
+            color:white;
+            font-size: 22px;
+            text-decoration: none;
+        }
+    </style>
 </html>

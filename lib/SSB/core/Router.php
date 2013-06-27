@@ -2,7 +2,7 @@
 
 namespace lib\SSB\core;
 
-use lib\SSB\controllers as Controllers;
+use lib\SSB\views as Views;
 
 class Router {
 
@@ -14,13 +14,13 @@ class Router {
         $pattern = '/\.html/';
         if (preg_match($pattern, $_SERVER['REQUEST_URI'], $matches)) {
             $url = $request[1];
-            $nodeController = new Controllers\node;
-            $result = $nodeController->showNode($url);
+            $nodeView = new Views\node;
+            $result = $nodeView->showNode($url);
             $content = $result['content'];
             $title = $result['title'];
             $description = $result['description'];
             $keywords = $result['keywords'];
-            include '/views/layout/main.php';
+            include 'lib/SSB/views/layout/main.php';
             $stopRoute = TRUE;
         }
         //show community by name and page
@@ -38,11 +38,13 @@ class Router {
         //show blog by page
         if (!$stopRoute) {
             (isset($request[1])) ? $page = (int) $request[1] : $page = 0;
-            echo 'show blog page =' . $page;
-            $content = $node->body;
-            $title = $node->name;
-            $description = '';
-            $keywords = '';
+            $blogView = new Views\blog;
+            $result = $blogView->showNodes($page);
+            $content = $result['content'];
+            $title = $result['title'];
+            $description = $result['description'];
+            $keywords = $result['keywords'];
+            include 'lib/SSB/views/layout/main.php';
             $stopRoute = TRUE;
         }
     }

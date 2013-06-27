@@ -27,9 +27,16 @@ class Node extends Core\DB {
     }
 
     public static function getNodes($offset = 0, $limit = 10) {        
-        $result = self::$_conn->query("SELECT * FROM nodes LIMIT $offset,$limit ");
+        $result = self::$_conn->query("SELECT 
+                nodes.*,
+                community.id as c_id,
+                community.name as c_name,
+                community.url_name as c_url_name 
+                FROM nodes, community 
+                WHERE nodes.cid = community.id 
+                ORDER BY nodes.id DESC LIMIT $offset,$limit ");
         # Map results to object
-        $result->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\Node');
+        $result->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Node');
         $nodes = $result->fetchAll();
         return $nodes;
     }

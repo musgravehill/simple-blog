@@ -1,6 +1,6 @@
 <?php
 
-namespace lib\SSB\controllers;
+namespace lib\SSB\views;
 
 use lib\SSB\models as Models;
 
