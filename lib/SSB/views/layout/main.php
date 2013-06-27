@@ -53,5 +53,10 @@
             font-size: 22px;
             text-decoration: none;
         }
+        
+        .blog-node{
+            
+        }
+        
     </style>
 </html>

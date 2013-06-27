@@ -1,8 +1,9 @@
 <?php
+
 namespace lib\SSB\models;
-use PDO, lib\SSB\core as Core;
 
-
+use PDO,
+    lib\SSB\core as Core;
 
 class Node extends Core\DB {
 
@@ -26,7 +27,7 @@ class Node extends Core\DB {
         parent::__destruct();
     }
 
-    public static function getNodes($offset = 0, $limit = 10) {        
+    public static function getNodes($offset = 0, $limit = 10) {
         $result = self::$_conn->query("SELECT 
                 nodes.*,
                 community.id as c_id,
@@ -41,25 +42,25 @@ class Node extends Core\DB {
         return $nodes;
     }
 
-    public static function getNode($url) {        
+    public static function getNode($url) {
         $stmt = self::$_conn->prepare('SELECT * FROM nodes WHERE url_name = :url  LIMIT 1 ');
-        $stmt->execute(array('url' => $url));        
+        $stmt->execute(array('url' => $url));
         # Map results to object
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Node');
         $node = $stmt->fetch();
         return $node;
     }
 
-    public static function getNodesBy($offset = 0, $limit = 10, $whereTag = false, $whereCommunity = false) {
-        $result = self::$_conn->query("SELECT * FROM nodes LIMIT $offset,$limit ");
-
+    public static function getNodesByCommunity($cid, $offset = 0, $limit = 10) {
+        $result = self::$_conn->query("SELECT 
+                nodes.*                
+                FROM nodes
+                WHERE nodes.cid = $cid 
+                ORDER BY nodes.id DESC LIMIT $offset,$limit ");
         # Map results to object
-        $result->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\Node');
-
-        while ($user = $result->fetch()) {
-            # Call our custom full_name method
-            echo $user->name;
-        }
+        $result->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Node');
+        $nodes = $result->fetchAll();
+        return $nodes;
     }
 
 }

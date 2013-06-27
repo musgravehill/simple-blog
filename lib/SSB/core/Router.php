@@ -28,11 +28,13 @@ class Router {
         if ((!$stopRoute) && (preg_match($pattern, $_SERVER['REQUEST_URI'], $matches))) {
             $community_name = $request[2];
             (isset($request[3])) ? $page = (int) $request[3] : $page = 0;
-            echo 'show node by community_name = ' . $community_name . ' page =' . $page;
-            $content = $node->body;
-            $title = $node->name;
-            $description = '';
-            $keywords = '';
+            $communityView = new Views\community;
+            $result = $communityView->showNodes($community_name,$page);
+            $content = $result['content'];
+            $title = $result['title'];
+            $description = $result['description'];
+            $keywords = $result['keywords'];
+            include 'lib/SSB/views/layout/main.php';
             $stopRoute = TRUE;
         }
         //show blog by page
