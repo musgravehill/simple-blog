@@ -13,17 +13,27 @@ class blog {
         $offset = $page * self::$_countOnPage;
         $limit = self::$_countOnPage;
 
-        $content='';
+        $content='<table class="table-condensed">';
         $nodes = $Node->getNodes($offset, $limit);
         foreach ($nodes as $node){
+            $content .='<tr>';
+            $content .='<td>';
             $content .='<a href="/community/'.$node->c_url_name.'">
-                            <img src="/uploads/community/logo/64x64/'.$node->c_id.'.jpg" alt="'.$node->c_url_name.'" title="'.$node->c_url_name.'">
-                            '.$node->c_name.'
+                                <img class="img-circle" src="/uploads/community/logo/64x64/'.$node->c_id.'.jpg" alt="'.$node->c_name.'" title="'.$node->c_name.'">                                                
                         </a>';
+            $content .='</td>';
+            $content .='<td>';
             $content .= '<h2>'.$node->name.'</h2>';
-            $content .= mb_substr(strip_tags($node->body), 0, 96, "utf-8");            
+            $content .= '<span>'.mb_substr(strip_tags($node->body), 0, 128, "utf-8").'...</span>';
+            $content .= '<hr style="margin:5px 0px;">';
+            $content .= '<a title="рыбтема" class="muted" href="/community/'.$node->c_url_name.'">'.$node->c_name.'</a>';
+            $content .= '<span class="muted pull-right">'.date('d-m-Y',strtotime($node->created_date)).'</span>';
+            $content .='</td>';
+            $content .='</tr>';
+               
+
         }
-        
+        $content .= '</table>';
         
         $result = array(
             'content' => $content,
