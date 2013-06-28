@@ -19,7 +19,7 @@ class blog {
             $content .='<tr>';
             $content .='<td>';
             $content .='<a href="/community/'.$node->c_url_name.'">
-                                <img class="img-circle" src="/uploads/community/logo/64x64/'.$node->c_id.'.jpg" alt="'.$node->c_name.'" title="'.$node->c_name.'">                                                
+                                <img width="96"  style="width:96px;" class="img-circle" src="/uploads/themes/'.$node->c_id.'.jpg" alt="'.$node->c_name.'" title="'.$node->c_name.'">                                                
                         </a>';
             $content .='</td>';
             $content .='<td>';

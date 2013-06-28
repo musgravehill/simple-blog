@@ -742,8 +742,10 @@ h6 {
   font-family: inherit;
   font-weight: bold;
   line-height: 20px;
-  color: inherit;
-  text-rendering: optimizelegibility;
+  /*color: inherit;
+  text-rendering: optimizelegibility;*/
+  color:#666600;
+  
 }
 
 h1 small,

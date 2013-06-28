@@ -8,18 +8,14 @@
         <meta name="keywords" content="<?php echo $keywords; ?>">
         <meta name="author" content="">
         <link rel="shortcut icon" href="/favicon.png" >        
-        <link href="/design/bootstrap/css/bootstrap.css" rel="stylesheet">        
-        <style>
-            body {
-                padding-top: 80px; /* 60px to make the container go all the way to the bottom of the topbar */
-            }
-        </style>
+        
+        <link href="/design/bootstrap/css/bootstrap.css" rel="stylesheet"> 
         <link href="/design/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     </head>
-    <body>
-        <a class="name-top-brand" style="" href="/">Рыбку ловим!</a>
-        <div class="top-div-brand">            
-        </div>
+    <body style="padding-top: 80px;">
+        <a class="name-top-brand" href="/">☁❄ Рыбку ловим! ☼☂</a>
+        <div class="fish-top-left"></div>
+        <div class="fish-top-right"></div>
         <div class="container">
             <div class="row">
                 <div class="span9">
@@ -34,28 +30,39 @@
         <script src="/design/bootstrap/js/bootstrap.min.js"></script>
     </body>
     <style>
-        .top-div-brand{            
+        .fish-top-left{            
             position:absolute;
             top:0px;
+            left: 0px;
             display: inline-block;
-            background-image: url('/design/img/top-fish-shadow-320.png');
+            background-image: url('/design/img/top-fish-shadow-320-l.png');
             width: 320px;
-            height: 102px;
+            height: 98px;
             padding: 0px;
             margin: 0px;
         }
-        .name-top-brand, .name-top-brand:hover{
-            position: absolute;
+        .fish-top-right{            
+            position:absolute;
+            top:0px;
+            right: 0px;
+            display: inline-block;
+            background-image: url('/design/img/top-fish-shadow-320-r.png');
+            width: 320px;
+            height: 98px;
+            padding: 0px;
+            margin: 0px;
+        }
+        a.name-top-brand, a.name-top-brand:hover{             
+            position: absolute;            
             top:10px;
-            left:40%;
-            color:#003300;            
+            left:50%;  
+            margin-left: -200px;
             text-decoration: none;
             display: inline-block;
             font-family: inherit;
             font-weight: bold;            
-            font-size: 32px;
-            color: inherit;
-            text-rendering: optimizelegibility;
+            font-size: 38px;                        
+            color:#666600;
         }
 
 

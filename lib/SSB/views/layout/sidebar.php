@@ -6,7 +6,7 @@ echo '<table class="table-condensed table">';
 foreach ($communities as $community) {
     echo '<tr>';
     echo '<td>
-                <img class="img-circle" style="height: 32px;" src="/uploads/community/logo/64x64/'.$community->id.'.jpg" title="'.$community->name.'" alt="'.$community->name.'">
+                <img class="img-circle" width="32"  style="width:32px;" src="/uploads/themes/'.$community->id.'.jpg" title="'.$community->name.'" alt="'.$community->name.'">
             </td>';
     echo '<td>
                 <a class="sidebar-community-name" href="/community/'.$community->url_name.'/">'.$community->name.'</a>
@@ -19,13 +19,13 @@ echo '</table>';
     .sidebar-community-name{
         padding:0px;
         margin: 5px 0px 0px 0px;
-        color:#003300;
+        color:#666600;
         display: inline-block;
         font-weight: bold;
     }
     .sidebar-community-tag{
         padding:4px;
-        color:#003300;
+        color:#666600;
         display: inline-block;
         font-weight: bold;
     }
