@@ -11,21 +11,16 @@
         <link href="/design/bootstrap/css/bootstrap.css" rel="stylesheet">        
         <style>
             body {
-                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+                padding-top: 80px; /* 60px to make the container go all the way to the bottom of the topbar */
             }
         </style>
-        <link href="/design/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="/design/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                            
-                    <div class="top-div-brand">
-                        <a class="name-top-brand" style="" href="/">Рыбку ловим!</a>      
-                        <div class="nav-collapse collapse"></div><!--/.nav-collapse -->
-                        </div>
-                
-            </div>
+        <div class="navbar-wood">
+            <a class="name-top-brand" style="" href="/">Рыбку ловим!</a>
+        </div>
+        <div class="top-div-brand">            
         </div>
         <div class="container">
             <div class="row">
@@ -41,22 +36,32 @@
         <script src="/design/bootstrap/js/bootstrap.min.js"></script>
     </body>
     <style>
-        .top-div-brand{
-            background-color:#669900;
+        .top-div-brand{            
+            position:absolute;
+            top:0px;
             display: inline-block;
+            background-image: url('/design/img/top-fish-320.png');
+            width: 320px;
+            height: 108px;
+            padding: 0px;
             margin: 0px;
-            padding: 10px;
-            height: 100%;
         }
         .name-top-brand, .name-top-brand:hover{
             color:white;
-            font-size: 22px;
+            font-size: 32px;
             text-decoration: none;
+            margin: 10px 0px 0px 40%;
+            display: inline-block;
         }
-        
-        .blog-node{
-            
+
+        .navbar-wood{
+            position:absolute;
+            top:0px;
+            background-image: url('/design/img/top-bambooo.png');
+            height: 80px;
+            display: inline-block;
+            width: 100%;            
         }
-        
+
     </style>
 </html>
