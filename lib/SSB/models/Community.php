@@ -24,13 +24,20 @@ class Community extends Core\DB {
         parent::__destruct();
     }
 
-    public static function getCommunity($url) {
+    public function getCommunity($url) {
         $stmt = self::$_conn->prepare('SELECT * FROM community WHERE url_name = :url  LIMIT 1 ');
         $stmt->execute(array('url' => $url));
         # Map results to object
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Community');
         $community = $stmt->fetch();
         return $community;
+    }
+    public function getCommunities() {
+        $stmt = self::$_conn->query('SELECT * FROM community ORDER BY name ASC ');        
+        # Map results to object
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Community');
+        $communities = $stmt->fetchAll();
+        return $communities;
     }
 
 }

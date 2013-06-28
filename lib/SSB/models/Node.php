@@ -27,7 +27,7 @@ class Node extends Core\DB {
         parent::__destruct();
     }
 
-    public static function getNodes($offset = 0, $limit = 10) {
+    public function getNodes($offset = 0, $limit = 10) {
         $result = self::$_conn->query("SELECT 
                 nodes.*,
                 community.id as c_id,
@@ -42,7 +42,7 @@ class Node extends Core\DB {
         return $nodes;
     }
 
-    public static function getNode($url) {
+    public function getNode($url) {
         $stmt = self::$_conn->prepare('SELECT * FROM nodes WHERE url_name = :url  LIMIT 1 ');
         $stmt->execute(array('url' => $url));
         # Map results to object
@@ -51,7 +51,7 @@ class Node extends Core\DB {
         return $node;
     }
 
-    public static function getNodesByCommunity($cid, $offset = 0, $limit = 10) {
+    public function getNodesByCommunity($cid, $offset = 0, $limit = 10) {
         $result = self::$_conn->query("SELECT 
                 nodes.*                
                 FROM nodes
