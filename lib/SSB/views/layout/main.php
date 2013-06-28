@@ -38,9 +38,9 @@
             position:absolute;
             top:0px;
             display: inline-block;
-            background-image: url('/design/img/top-fish-320.png');
+            background-image: url('/design/img/top-fish-shadow-320.png');
             width: 320px;
-            height: 108px;
+            height: 102px;
             padding: 0px;
             margin: 0px;
         }
