@@ -17,9 +17,7 @@
         <link href="/design/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     </head>
     <body>
-        <div class="navbar-wood">
-            <a class="name-top-brand" style="" href="/">Рыбку ловим!</a>
-        </div>
+        <a class="name-top-brand" style="" href="/">Рыбку ловим!</a>
         <div class="top-div-brand">            
         </div>
         <div class="container">
@@ -47,21 +45,20 @@
             margin: 0px;
         }
         .name-top-brand, .name-top-brand:hover{
-            color:white;
-            font-size: 32px;
+            position: absolute;
+            top:10px;
+            left:40%;
+            color:#003300;            
             text-decoration: none;
-            margin: 10px 0px 0px 40%;
             display: inline-block;
+            font-family: inherit;
+            font-weight: bold;            
+            font-size: 32px;
+            color: inherit;
+            text-rendering: optimizelegibility;
         }
 
-        .navbar-wood{
-            position:absolute;
-            top:0px;
-            background-image: url('/design/img/top-bambooo.png');
-            height: 80px;
-            display: inline-block;
-            width: 100%;            
-        }
+
 
     </style>
 </html>
