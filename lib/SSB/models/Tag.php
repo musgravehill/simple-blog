@@ -29,17 +29,44 @@ class Tag extends Core\DB {
         return $tags;
     }
     public function getNodeTags($nid) {
-        $stmt = self::$_conn->prepare('SELECT tags.name as t_name
-            FROM tags,nodes_tags
+        $stmt = self::$_conn->prepare('
+            SELECT 
+                tags.name as t_name
+            FROM 
+                tags,nodes_tags
             WHERE
-            nodes_tags.tid = tags.id 
-            AND nodes_tags.nid = :nid
+                nodes_tags.tid = tags.id 
+                AND nodes_tags.nid = :nid
             ORDER BY name ASC ');
         $stmt->execute(array('nid' => $nid));
         # Map results to object
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Tag');
         $nodeTags = $stmt->fetchAll();
-        return $nodeTags;
+        $result = array();
+        foreach ($nodeTags as $nodeTag){
+            $result[] = $nodeTag->t_name;
+        }
+        return $result;
+    }
+    public function getNodeTagsID($nid) {
+        $stmt = self::$_conn->prepare('
+            SELECT 
+                tags.id as tid
+            FROM 
+                tags,nodes_tags
+            WHERE
+                nodes_tags.tid = tags.id 
+                AND nodes_tags.nid = :nid
+            ORDER BY name ASC ');
+        $stmt->execute(array('nid' => $nid));
+        # Map results to object
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Tag');
+        $nodeTags = $stmt->fetchAll();
+        $result = array();
+        foreach ($nodeTags as $nodeTag){
+            $result[] = $nodeTag->tid;
+        }
+        return $result;
     }
     public function getTag($tag_name) {
         $stmt = self::$_conn->prepare('SELECT * FROM tags WHERE tags.name = :tag_name  LIMIT 1 ');

@@ -24,7 +24,7 @@ echo '</table>';
         font-weight: bold;
     }
     .sidebar-community-tag{
-        padding:4px;
+        padding: 0px 3px 0px 3px;
         color:#666600;
         display: inline-block;
         font-weight: bold;
