@@ -43,7 +43,7 @@ class Node extends Core\DB {
     }
 
     public function getNode($url) {
-        $stmt = self::$_conn->prepare('SELECT * FROM nodes WHERE url_name = :url  LIMIT 1 ');
+        $stmt = self::$_conn->prepare('SELECT * FROM nodes WHERE url_name = :url  LIMIT 1 ');        
         $stmt->execute(array('url' => $url));
         # Map results to object
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Node');
@@ -60,6 +60,21 @@ class Node extends Core\DB {
         # Map results to object
         $result->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Node');
         $nodes = $result->fetchAll();
+        return $nodes;
+    }
+    public function getNodesByTag($tid, $offset = 0, $limit = 10) {
+        $stmt = self::$_conn->prepare("SELECT 
+                    nodes.*                
+                FROM nodes, nodes_tags 
+                WHERE 
+                    nodes.id = nodes_tags.nid 
+                    AND nodes_tags.tid = :tid
+                ORDER BY nodes.id DESC LIMIT $offset,$limit ");
+        
+        $stmt->execute(array('tid' => $tid));
+        # Map results to object
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Node');
+        $nodes = $stmt->fetchAll();
         return $nodes;
     }
 

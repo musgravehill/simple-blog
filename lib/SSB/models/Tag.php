@@ -32,7 +32,7 @@ class Tag extends Core\DB {
         $stmt = self::$_conn->prepare('SELECT tags.name as t_name
             FROM tags,nodes_tags
             WHERE
-            nodes_tags.tid = tags.id
+            nodes_tags.tid = tags.id 
             AND nodes_tags.nid = :nid
             ORDER BY name ASC ');
         $stmt->execute(array('nid' => $nid));
@@ -40,6 +40,14 @@ class Tag extends Core\DB {
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Tag');
         $nodeTags = $stmt->fetchAll();
         return $nodeTags;
+    }
+    public function getTag($tag_name) {
+        $stmt = self::$_conn->prepare('SELECT * FROM tags WHERE tags.name = :tag_name  LIMIT 1 ');
+        $stmt->execute(array('tag_name' => $tag_name));
+        # Map results to object
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'lib\SSB\models\Tag');
+        $tag = $stmt->fetch();
+        return $tag;
     }
 
 }

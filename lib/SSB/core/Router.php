@@ -37,6 +37,20 @@ class Router {
             include 'lib/SSB/views/layout/main.php';
             $stopRoute = TRUE;
         }
+        //show community by name and page
+        $pattern = '/tags\/.*/';
+        if ((!$stopRoute) && (preg_match($pattern, $_SERVER['REQUEST_URI'], $matches))) {
+            $tag_name = $request[2];
+            (isset($request[3])) ? $page = (int) $request[3] : $page = 0;
+            $tagView = new Views\tag;
+            $result = $tagView->showNodes($tag_name,$page);
+            $content = $result['content'];
+            $title = $result['title'];
+            $description = $result['description'];
+            $keywords = $result['keywords'];
+            include 'lib/SSB/views/layout/main.php';
+            $stopRoute = TRUE;
+        }
         //show blog by page
         if (!$stopRoute) {
             (isset($request[1])) ? $page = (int) $request[1] : $page = 0;

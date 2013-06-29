@@ -12,7 +12,7 @@
         <link href="/design/bootstrap/css/bootstrap.css" rel="stylesheet"> 
         <link href="/design/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     </head>
-    <body style="padding-top: 80px;">
+    <body style="padding-top: 90px;">
         <a class="name-top-brand" href="/">☁❄ Рыбку ловим! ☼☂</a>
         <div class="fish-top-left"></div>
         <div class="fish-top-right"></div>

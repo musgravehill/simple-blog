@@ -23,7 +23,7 @@ class blog {
                         </a>';
             $content .='</td>';
             $content .='<td>';
-            $content .= '<h2>'.$node->name.'</h2>';
+            $content .= '<a href="/'.$node->url_name.'"><h2>'.$node->name.'</h2></a>';
             $content .= '<span>'.mb_substr(strip_tags($node->body), 0, 128, "utf-8").'...</span>';
             $content .= '<hr style="margin:5px 0px;">';
             $content .= '<a title="рыбтема" class="muted" href="/community/'.$node->c_url_name.'">'.$node->c_name.'</a>';
